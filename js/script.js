@@ -84,8 +84,15 @@ const DOM = {
 
 
     updateBalance() {
+        
         document.getElementById('incomeDisplay').innerHTML = Utils.formatCurrency(Transaction.incomes())
         document.getElementById('expenseDisplay').innerHTML = Utils.formatCurrency(Transaction.expenses())
+        
+        if(Transaction.total() <= 0 ){
+            document.querySelector('.card.total').style.background = '#e92929'
+        }else {
+            document.querySelector('.card.total').style.background = ''
+        }
         document.getElementById('totalDisplay').innerHTML = Utils.formatCurrency(Transaction.total())
     },
 
